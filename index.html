@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabor & Arte Confeitaria - Bolos de Casamento e Delícias Gourmet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="logo">Sabor & Arte</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#casamento">Bolos de Casamento</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#orcamento" class="cta-link">Orçamentos</a></li>
+                <li><a href="#historia">Nossa História</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle">☰</button>
+    </header>
+
+    <main>
+        <section id="home" class="hero-banner">
+            <div class="banner-content">
+                <h1>Sabor e Arte para Seus Momentos Especiais</h1>
+                <p>Criações únicas para casamentos, festas e celebrações.</p>
+                <a href="#orcamento" class="btn btn-primary">Solicite seu Orçamento</a>
+            </div>
+            
+        </section>
+
+        <section class="highlights-section">
+            <h2 class="section-title">Nossas Especialidades</h2>
+            <div class="highlights-container">
+                <div class="highlight-block">
+                    <img src="placeholder-casamento.jpg" alt="Bolos de Casamento">
+                    <h3>Bolos de Casamento</h3>
+                    <p>O protagonista da sua festa, feito sob medida.</p>
+                    <a href="#casamento" class="btn btn-secondary">Ver Galeria</a>
+                </div>
+                <div class="highlight-block">
+                    <img src="placeholder-tortas.jpg" alt="Tortas e Sobremesas">
+                    <h3>Tortas e Sobremesas</h3>
+                    <p>Clássicos e autorais para adoçar qualquer dia.</p>
+                    <a href="#cardapio" class="btn btn-secondary">Conhecer Sabores</a>
+                </div>
+                <div class="highlight-block">
+                    <img src="placeholder-salgados.jpg" alt="Doces e Salgados para Festas">
+                    <h3>Doces e Salgados</h3>
+                    <p>Miniaturas gourmet para encantar seus convidados.</p>
+                    <a href="#cardapio" class="btn btn-secondary">Ver Cardápio Completo</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonials-section bg-light">
+            <h2 class="section-title">O Que Dizem Nossos Clientes</h2>
+            <div class="testimonial-carousel">
+                </div>
+            <div class="carousel-nav">
+                <button class="nav-dot active" data-index="0"></button>
+                <button class="nav-dot" data-index="1"></button>
+                <button class="nav-dot" data-index="2"></button>
+            </div>
+        </section>
+
+        <section id="casamento" class="wedding-section">
+            <h2 class="section-title">💍 Bolos de Casamento: Sua Doce História</h2>
+            <p class="section-subtitle">Da inspiração à entrega, um processo claro e dedicado.</p>
+
+            <div class="process-steps">
+                <div class="step">
+                    <span>1.</span>
+                    <h3>Contato e Data</h3>
+                    <p>Verifique a disponibilidade e agende sua primeira conversa.</p>
+                </div>
+                <div class="step">
+                    <span>2.</span>
+                    <h3>Degustação</h3>
+                    <p>Prove nossos sabores e escolha a combinação perfeita.</p>
+                </div>
+                <div class="step">
+                    <span>3.</span>
+                    <h3>Design e Orçamento</h3>
+                    <p>Criamos um projeto exclusivo e definimos os detalhes.</p>
+                </div>
+                <div class="step">
+                    <span>4.</span>
+                    <h3>Entrega Especial</h3>
+                    <p>Logística e montagem profissionais no local do evento.</p>
+                </div>
+            </div>
+
+            <div class="wedding-cta">
+                <a href="#" class="btn btn-primary">Agende sua Degustação</a>
+            </div>
+
+            <div class="gallery-grid">
+                
+                
+            </div>
+
+        </section>
+
+        <section id="cardapio" class="menu-section bg-light">
+            <h2 class="section-title">📝 Nosso Cardápio Gourmet</h2>
+
+            <div class="menu-filters">
+                <button class="filter-btn active" data-category="tortas">Tortas Especiais</button>
+                <button class="filter-btn" data-category="doces">Doces Finos</button>
+                <button class="filter-btn" data-category="salgados">Salgados para Festa</button>
+            </div>
+
+            <div class="menu-items-container">
+                <div class="menu-item tortas">
+                    <img src="placeholder-torta-holandesa.jpg" alt="Torta Holandesa">
+                    <div class="item-details">
+                        <h4>Torta Holandesa Clássica</h4>
+                        <p>Base de biscoito, creme aerado, finalizada com chocolate belga e raspas.</p>
+                        <span class="price">P (10 fatias) | M (18 fatias) | G (30 fatias)</span>
+                    </div>
+                </div>
+
+                <div class="menu-item doces" style="display:none;">
+                    <img src="placeholder-brigadeiro.jpg" alt="Brigadeiro Gourmet">
+                    <div class="item-details">
+                        <h4>Brigadeiro Gourmet de Pistache</h4>
+                        <p>Massa cremosa de pistache puro, banhado em pistache granulado.</p>
+                        <span class="price">Unidade | Cento</span>
+                    </div>
+                </div>
+                
+                 <div class="menu-item salgados" style="display:none;">
+                    <img src="placeholder-coxinha-camarao.jpg" alt="Coxinha de Camarão">
+                    <div class="item-details">
+                        <h4>Mini Coxinha de Camarão Cremoso</h4>
+                        <p>Massa leve, recheio de camarão no cream cheese, empanada crocante.</p>
+                        <span class="price">Cento (Frito)</span>
+                    </div>
+                </div>
+                
+            </div>
+            <p class="cardapio-note">*Consulte tamanhos e sabores sazonais.</p>
+        </section>
+
+
+        <section id="orcamento" class="form-section">
+            <h2 class="section-title">💌 Solicite seu Orçamento Detalhado</h2>
+            <p class="section-subtitle">Preencha os campos abaixo para receber uma cotação personalizada.</p>
+            
+            <form action="#" method="POST" class="budget-form">
+                <fieldset>
+                    <legend>Seus Dados</legend>
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Detalhes do Evento</legend>
+
+                    <label for="data-evento">Data do Evento:</label>
+                    <input type="date" id="data-evento" name="data-evento" required>
+
+                    <label for="tipo-evento">Tipo de Evento:</label>
+                    <select id="tipo-evento" name="tipo-evento" required>
+                        <option value="">Selecione...</option>
+                        <option value="casamento">Casamento</option>
+                        <option value="aniversario">Aniversário</option>
+                        <option value="corporativo">Corporativo</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                    
+                    <label for="convidados">Número de Convidados (Estimado):</label>
+                    <input type="number" id="convidados" name="convidados" min="10" required>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>O Que Você Deseja?</legend>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="check-bolos" name="produtos" value="bolos">
+                        <label for="check-bolos">Bolos de Casamento/Festa</label><br>
+
+                        <input type="checkbox" id="check-tortas" name="produtos" value="tortas">
+                        <label for="check-tortas">Tortas Especiais</label><br>
+
+                        <input type="checkbox" id="check-doces" name="produtos" value="doces">
+                        <label for="check-doces">Doces Finos</label><br>
+
+                        <input type="checkbox" id="check-salgados" name="produtos" value="salgados">
+                        <label for="check-salgados">Salgados Assados/Fritos</label>
+                    </div>
+
+                    <label for="observacoes">Observações/Detalhes Específicos:</label>
+                    <textarea id="observacoes" name="observacoes" rows="5" placeholder="Ex: Tema da festa, restrições alimentares, estilo de bolo desejado..."></textarea>
+                </fieldset>
+
+                <p class="info-importante">**Pedidos grandes devem ser feitos com no mínimo 30 dias de antecedência. Entregamos em (Sua Cidade) - Consulte Taxas.</p>
+
+                <button type="submit" class="btn btn-primary">Enviar Solicitação de Orçamento</button>
+            </form>
+        </section>
+        
+        <section id="historia" class="bg-light story-section">
+            <h2 class="section-title">Nossa História 🥐</h2>
+            <p>A Sabor & Arte nasceu do sonho de combinar a tradição da alta confeitaria com a inovação gourmet. Desde 2010, nossa equipe transforma ingredientes de primeira linha em obras de arte comestíveis. Nossa filosofia é simples: **confiança, sabor inigualável e paixão por celebrar a vida.**</p>
+        </section>
+
+    </main>
+
+    <footer id="contato" class="footer-content">
+        <div class="contact-info">
+            <h3>Fale Conosco</h3>
+            <p>📍 Rua Exemplo, 123 - Bairro Doce, Cidade</p>
+            <p>📞 (XX) 9XXXX-XXXX</p>
+            <p>📧 contato@saborarte.com.br</p>
+        </div>
+        <div class="social-media">
+            <h3>Siga-nos</h3>
+            <a href="#" target="_blank">Instagram</a> | 
+            <a href="#" target="_blank">Facebook</a>
+        </div>
+        <p class="copyright">&copy; 2025 Sabor & Arte Confeitaria. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
