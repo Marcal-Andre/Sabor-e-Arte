@@ -188,8 +188,21 @@ section {
 .banner-content {
     z-index: 10;
     max-width: 800px;
-    padding: 20px;
+    padding: 30px;
 }
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 10;
+    gap: 40px;
+}
+
+
 
 .banner-content h1 {
     color: var(--color-text-light);

@@ -1,122 +1,115 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- 1. Menu Responsivo e Fixo ---
-    const header = document.getElementById('main-header');
-    const nav = header.querySelector('nav');
-    const menuToggle = header.querySelector('.menu-toggle');
-
-    // Toggle Menu (Mobile)
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        menuToggle.textContent = nav.classList.contains('active') ? '✖' : '☰';
-    });
     
-    // Fechar menu ao clicar em um link (Mobile)
-    document.querySelectorAll('nav ul li a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                nav.classList.remove('active');
-                menuToggle.textContent = '☰';
-            }
-        });
-    });
-
-    // Fixar Header (Ajustar sombra/estilo, se necessário)
-    // No CSS, o header já está 'position: fixed', então essa parte é mais para efeitos
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.05)';
-        }
-    });
-
-    // --- 2. Carrossel de Testemunhos ---
-    const testimonials = [
-        {
-            text: "O bolo de casamento foi o ponto alto! Além de lindo, estava incrivelmente saboroso. Profissionalismo impecável do início ao fim.",
-            author: "Mariana e Lucas"
-        },
-        {
-            text: "Os doces finos para a nossa festa de aniversário foram um sucesso absoluto. Apresentação impecável e um sabor gourmet inesquecível.",
-            author: "Patrícia V."
-        },
-        {
-            text: "O formulário de orçamento é super detalhado, e a resposta foi muito rápida. A torta holandesa fez todos se apaixonarem. Confiança total!",
-            author: "Empresa Inovação Ltda."
-        }
-    ];
-
-    const carousel = document.querySelector('.testimonial-carousel');
-    const dots = document.querySelectorAll('.nav-dot');
-    let currentIndex = 0;
-
-    // Função para renderizar um testemunho
-    const renderTestimonial = (index) => {
-        carousel.innerHTML = '';
-        const item = document.createElement('div');
-        item.className = 'testimonial-item';
-        item.innerHTML = `<p>"${testimonials[index].text}"</p><strong>— ${testimonials[index].author}</strong>`;
-        carousel.appendChild(item);
-
-        // Atualiza os pontos de navegação
-        dots.forEach((dot, i) => {
-            dot.classList.remove('active');
-            if (i === index) {
-                dot.classList.add('active');
-            }
-        });
-    };
-
-    // Inicializa o carrossel
-    renderTestimonial(currentIndex);
-
-    // Navegação por pontos
-    dots.forEach(dot => {
-        dot.addEventListener('click', (e) => {
-            const index = parseInt(e.target.dataset.index);
-            currentIndex = index;
-            renderTestimonial(currentIndex);
-        });
-    });
-
-    // Troca automática a cada 6 segundos
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % testimonials.length;
-        renderTestimonial(currentIndex);
-    }, 6000);
-
-
-    // --- 3. Filtro de Cardápio ---
+    // --- 1. FUNCIONALIDADE DO CARDÁPIO (FILTROS) ---
     const filterButtons = document.querySelectorAll('.filter-btn');
     const menuItems = document.querySelectorAll('.menu-item');
 
     filterButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const category = e.target.dataset.category;
-
-            // Remove 'active' de todos e adiciona ao clicado
+        button.addEventListener('click', () => {
+            // Remove classe ativa de todos e adiciona no clicado
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            e.target.classList.add('active');
+            button.classList.add('active');
 
-            // Filtra os itens
+            const category = button.getAttribute('data-category');
+
             menuItems.forEach(item => {
-                const itemCategory = item.classList.contains(category);
+                // Efeito de transição suave
+                item.style.opacity = '0';
                 
-                // Simples toggle de display, em uma aplicação real usaria classes CSS para animação.
-                if (itemCategory) {
-                    item.style.display = 'flex';
-                    // No mobile a visualização é em coluna, então usaremos 'flex' ou 'block'
-                    if (window.innerWidth <= 768) {
+                setTimeout(() => {
+                    if (item.classList.contains(category)) {
                         item.style.display = 'flex';
+                        setTimeout(() => item.style.opacity = '1', 50);
                     } else {
-                        item.style.display = 'flex';
+                        item.style.display = 'none';
                     }
-                } else {
-                    item.style.display = 'none';
-                }
+                }, 300);
             });
         });
     });
 
+    // --- 2. FORMULÁRIO DE ORÇAMENTO EM ETAPAS ---
+    const form = document.querySelector('.budget-form');
+    const fieldsets = form.querySelectorAll('fieldset');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    // Inicialização: Esconde todos os fieldsets exceto o primeiro
+    fieldsets.forEach((fs, index) => {
+        if (index !== 0) fs.style.display = 'none';
+        
+        // Adiciona botões "Seguir" dinamicamente (exceto no último)
+        if (index < fieldsets.length - 1) {
+            const nextBtn = document.createElement('button');
+            nextBtn.type = 'button';
+            nextBtn.innerText = 'Seguir para próxima etapa';
+            nextBtn.className = 'btn btn-primary next-step';
+            nextBtn.style.marginTop = '20px';
+            fs.appendChild(nextBtn);
+
+            nextBtn.addEventListener('click', () => {
+                // Validação básica antes de seguir
+                const inputs = fs.querySelectorAll('input, select');
+                let valid = true;
+                inputs.forEach(i => { if(i.hasAttribute('required') && !i.value) valid = false; });
+
+                if(valid) {
+                    fs.style.display = 'none';
+                    fieldsets[index + 1].style.display = 'block';
+                    fieldsets[index + 1].scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert('Por favor, preencha os campos obrigatórios desta etapa.');
+                }
+            });
+        }
+    });
+
+    // Esconde o botão de enviar original até chegar na última etapa
+    submitBtn.style.display = 'none';
+    const lastFieldset = fieldsets[fieldsets.length - 1];
+    lastFieldset.appendChild(submitBtn); 
+    
+    // Observador para mostrar o botão enviar apenas na última etapa
+    const observer = new MutationObserver(() => {
+        if (lastFieldset.style.display === 'block') {
+            submitBtn.style.display = 'inline-block';
+        }
+    });
+    observer.observe(lastFieldset, { attributes: true, attributeFilter: ['style'] });
+
+
+    // --- 3. CARROSSEL DE DEPOIMENTOS (DEDICAÇÃO E CUIDADO) ---
+    const testimonials = [
+        { name: "Mariana Silva", text: "O bolo do meu casamento foi um sonho! A dedicação da equipe em cada detalhe floral superou minhas expectativas. Sabor impecável!" },
+        { name: "Ricardo Gomes", text: "Impressionado com o cuidado no transporte e montagem. Os salgados chegaram fresquinhos e a apresentação estava divina." },
+        { name: "Ana Beatriz", text: "Minha confeitaria favorita em Fortaleza. Percebe-se o amor e o cuidado com os ingredientes em cada mordida das tortas gourmet." },
+        { name: "Carla Souza", text: "Atendimento excepcional! Tivemos um pedido de última hora e eles trataram com total dedicação e profissionalismo. Recomendo!" }
+    ];
+
+    const carouselContainer = document.querySelector('.testimonial-carousel');
+    const dots = document.querySelectorAll('.nav-dot');
+
+    // Gera o HTML dos depoimentos
+    carouselContainer.innerHTML = testimonials.map(t => `
+        <div class="testimonial-item">
+            <p>"${t.text}"</p>
+            <strong>- ${t.name}</strong>
+        </div>
+    `).join('');
+
+    function showTestimonial(index) {
+        carouselContainer.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showTestimonial(index));
+    });
+
+    // Auto-play do carrossel a cada 5 segundos
+    let currentTestimonial = 0;
+    setInterval(() => {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    }, 5000);
 });

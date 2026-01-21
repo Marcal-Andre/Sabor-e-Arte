@@ -17,7 +17,7 @@
                 <li><a href="#home">Início</a></li>
                 <li><a href="#casamento">Bolos de Casamento</a></li>
                 <li><a href="#cardapio">Cardápio</a></li>
-                <li><a href="#orcamento" class="cta-link">Orçamentos</a></li>
+                <li><a href="#orcamento">Orçamentos</a></li>
                 <li><a href="#historia">Nossa História</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
@@ -29,14 +29,23 @@
     <main>
         
         <section id="home" class="hero-banner">
-            
-            <div class="banner-content">
-                <h1>Sabor e Arte para Seus Momentos Especiais</h1>
-                <p>Criações únicas para casamentos, festas e celebrações.</p>
-                <a href="#orcamento" class="btn btn-primary">Solicite seu Orçamento</a>
+    <div class="hero-container">
+
+         <div class="hero-carousel">
+            <div class="carousel-inner">
+                <img src="img/bolo-home-1.png" alt="Bolo de Casamento Luxo" class="carousel-img active">
+                <img src="img/bolo-home-2.png" alt="Doces Gourmet" class="carousel-img">
+                <img src="img/bolo-home-3.png" alt="Torta Especial" class="carousel-img">
             </div>
-            
-        </section>
+        </div> 
+
+        <div class="banner-content">
+            <h1>Sabor e Arte para Seus Momentos Especiais</h1>
+            <p>Criações únicas para casamentos, festas e celebrações.</p>
+        </div>
+
+    </div>
+</section>
 
         <section class="highlights-section">
             <h2 class="section-title">Nossas Especialidades</h2>
@@ -100,11 +109,7 @@
                 </div>
             </div>
 
-            <div class="wedding-cta">
-                <a href="#" class="btn btn-primary">Agende sua Degustação</a>
-            </div>
-
-            <div class="gallery-grid">
+            
                 
                 
             </div>
@@ -113,7 +118,6 @@
 
         <section id="cardapio" class="menu-section bg-light">
             <h2 class="section-title">📝 Nosso Cardápio Gourmet</h2>
-
             <div class="menu-filters">
                 <button class="filter-btn active" data-category="tortas">Tortas Especiais</button>
                 <button class="filter-btn" data-category="doces">Doces Finos</button>
@@ -140,7 +144,7 @@
                 </div>
                 
                  <div class="menu-item salgados" style="display:none;">
-                    <img src="placeholder-coxinha-camarao.jpg" alt="Coxinha de Camarão">
+                    <img src="img/coxinha-de-camarao.png" alt="Coxinha de Camarão">
                     <div class="item-details">
                         <h4>Mini Coxinha de Camarão Cremoso</h4>
                         <p>Massa leve, recheio de camarão no cream cheese, empanada crocante.</p>
@@ -239,12 +243,12 @@
             <p>Domingo: Fechado</p>
         </div>
 
-        <div cvlass="Categorias de Produtos">
+        <div class="categorias-produtos">
             <h3>Categorias de Produtos</h3>
-            <a href="">Bolos de Casamento</a>
-            <p>Tortas Especiais</p>
-            <p>Doces Finos</p>
-            <p>Salgados para Festa</p>
+            <a href="#casamento">Bolos de Casamento</a>
+            <a href="#cardapio">Tortas Especiais</a>
+            <a href="#cardapio">Doces Finos</a>
+            <a href="#cardapio">Salgados para Festa</a>
         </div>
         <div class="social-media">
             <h3>Siga-nos</h3>
@@ -288,7 +292,7 @@
         .copyright {
             flex-basis: 100%;
             text-align: center;
-            margin-top: 1.5rem0px;
+            margin-top: 1.5rem;
         }
 
         @media (max-width: 768px) {
@@ -305,5 +309,6 @@
     </style>
 
     <script src="script.js"></script>
+
 </body>
 </html>
