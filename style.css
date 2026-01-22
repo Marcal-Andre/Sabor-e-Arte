@@ -170,7 +170,7 @@ section {
     text-align: center;
     color: var(--color-text-light); /* Para destacar no banner */
     margin-top: 70px; /* Espaço para o header fixo */
-    padding-left: 460px;
+    padding-left: 110px;
     position: relative;
 }
 
@@ -202,7 +202,55 @@ section {
     gap: 40px;
 }
 
+.hero-container {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
+/* Container do Carrossel */
+.side-carousel-wrapper {
+    width: 50%; /* Ocupa metade da largura */
+    overflow: hidden; /* Esconde o que sai da borda */
+    position: relative;
+    border-radius: 15px;
+    background: #f9f9f9;
+}
+
+/* Trilho que se move */
+.side-carousel-track {
+    display: flex;
+    width: calc(250px * 6); /* Ajuste baseado na largura da img * quantidade */
+    animation: scroll-left 20s linear infinite;
+}
+
+.side-img {
+    width: 300px; /* Largura fixa para as imagens */
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 90px;
+}
+
+/* Conteúdo de Texto */
+.banner-content {
+    width: 45%;
+}
+
+/* Animação de Scroll */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-315px * 3)); } /* Move exatamente a largura de 3 imagens + gaps */
+}
+
+/* Pausa ao passar o mouse */
+.side-carousel-wrapper:hover .side-carousel-track {
+    animation-play-state: paused;
+}
 
 .banner-content h1 {
     color: var(--color-text-light);
