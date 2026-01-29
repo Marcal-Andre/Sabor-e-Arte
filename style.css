@@ -681,4 +681,43 @@ section {
         display: block;
         margin: 5px 0;
     }
+
+     .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 5rem;
+            padding: 2rem;
+            padding-left: 300px;
+            font-size: 11px;
+        }
+
+        .footer-content > div,
+        .footer-content > p {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .contact-info,
+        .social-media {
+            text-align: center;
+        }
+
+        .copyright {
+            flex-basis: 100%;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .copyright {
+                flex-basis: auto;
+            }
+        }
+        
 }
